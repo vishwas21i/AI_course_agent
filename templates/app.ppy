@@ -1,0 +1,9 @@
+import pandas as pd
+
+courses = pd.read_csv("courses.csv")
+
+def recommend_course(skill):
+    result = courses[
+        courses["Skill"].str.contains(skill, case=False, na=False)
+    ]
+    return result.to_dict("records")
