@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Course Recommendation Agent</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <h1>AI Course Recommendation Agent</h1>
+
+    <form method="POST">
+        <input type="text" name="skill" placeholder="Enter a Skill (Python, AI, Java)">
+        <button type="submit">Recommend Courses</button>
+    </form>
+
+    <h2>Recommended Courses</h2>
+
+    {% for course in recommendations %}
+    <div>
+        <h3>{{ course['Course Name'] }}</h3>
+        <p>Platform: {{ course['Platform'] }}</p>
+        <p>Level: {{ course['Level'] }}</p>
+    </div>
+    {% endfor %}
+
+</body>
+</html>
